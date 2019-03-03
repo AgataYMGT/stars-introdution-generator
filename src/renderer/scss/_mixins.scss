@@ -1,0 +1,8 @@
+@mixin position-middle {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100%;
+  align-items: center;
+
+  @content;
+}
