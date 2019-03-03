@@ -1,15 +1,17 @@
 <template>
-  <div class="bg-mask">
-    <main>
-      <div>
-        <section>
-          <img :src="imgSrces.logo" class="img-fluid logo-image" />
-        </section>
-        <section>
-          <button class="btn btn-outline-project btn-lg rounded-pill">はじめる</button>
-        </section>
-      </div>
-    </main>
+  <div class="bg-main">
+    <div class="bg-mask">
+      <main>
+        <div>
+          <section>
+            <img :src="imgSrces.logo" class="img-fluid logo-image" />
+          </section>
+          <section>
+            <button class="btn btn-outline-project btn-lg rounded-pill">はじめる</button>
+          </section>
+        </div>
+      </main>
+    </div>
   </div>
 </template>
 
@@ -25,14 +27,8 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "~@/scss/commons";
-
-body {
-  background-image: url("~@/assets/full-bg.png");
-  background-size: auto 100%;
-  animation: bg-slider 15s linear infinite;
-}
 
 main {
   @include position-middle() {
@@ -42,6 +38,12 @@ main {
   section {
     margin-bottom: 40px;
   }
+}
+
+.bg-main {
+  background-image: url("~@/assets/full-bg.png");
+  background-size: auto 100%;
+  animation: bg-slider 15s linear infinite;
 }
 
 .bg-mask {
