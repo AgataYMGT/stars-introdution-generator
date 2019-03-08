@@ -2,8 +2,8 @@
   <section class="w-100">
     <slot></slot>
     <div class="adjacent-buttons">
-      <button v-if="!isFirstQuestion" @click="$emit('input', id - 1)" class="btn btn-danger rounded-0">戻る</button>
-      <button @click="$emit('input', id + 1)" class="btn btn-danger rounded-0">次へ</button>
+      <button v-if="!isFirstQuestion" @click="$emit('input', value - 1)" class="btn btn-danger rounded-0">戻る</button>
+      <button @click="$emit('input', value + 1)" class="btn btn-danger rounded-0">次へ</button>
     </div>
   </section>
 </template>
@@ -13,11 +13,11 @@ export default {
   computed: {
     isFirstQuestion: function() {
       let self = this;
-      return self.id - 1 === 0;
+      return self.value - 1 === 0;
     }
   },
   props: {
-    id: Number,
+    value: Number,
   }
 }
 </script>

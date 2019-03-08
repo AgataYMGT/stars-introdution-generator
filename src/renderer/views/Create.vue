@@ -10,13 +10,13 @@
             <form>
               <div class="form-transition-box">
                 <transition name="form-page">
-                  <form-parts :id="1" :key="1" v-if="isCurrent(1)" v-model="currentQuestionId" class="form-page">
+                  <form-parts :key="1" v-if="isCurrent(1)" v-model="currentQuestionId" class="form-page">
                     <div class="form-group">
                       <p>紹介する人物の名前を入力</p>
                       <input type="text" class="form-control" v-model="articleData.name">
                     </div>
                   </form-parts>
-                  <form-parts :id="2" :key="2" v-if="isCurrent(2)" v-model="currentQuestionId" class="form-page">
+                  <form-parts :key="2" v-if="isCurrent(2)" v-model="currentQuestionId" class="form-page">
                     <div class="form-group">
                       <p>はじめの文を選択</p>
                       <select class="form-control">
