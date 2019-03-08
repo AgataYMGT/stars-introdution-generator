@@ -8,7 +8,7 @@
           </header>
           <main role="main">
             <form>
-              <form-parts>
+              <form-parts :id="1">
                 <div class="form-group">
                   <p slot="question-title">紹介する人物の名前を入力</p>
                   <input type="text" class="form-control" v-model="articleData.name">
