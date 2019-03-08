@@ -2,8 +2,8 @@
   <section class="w-100">
     <slot></slot>
     <div class="adjacent-buttons">
-      <button v-if="!isFirstQuestion" @click="$emit('input', value - 1)" class="btn btn-danger rounded-0">戻る</button>
-      <button @click="$emit('input', value + 1)" class="btn btn-danger rounded-0">次へ</button>
+      <button type="button" v-if="!isFirstQuestion" @click="$emit('input', value - 1)" class="btn btn-danger rounded-0">戻る</button>
+      <button type="button" @click="$emit('input', value + 1)" class="btn btn-danger rounded-0">次へ</button>
     </div>
   </section>
 </template>
