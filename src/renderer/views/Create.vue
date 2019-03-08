@@ -2,18 +2,30 @@
   <div class="bg-main">
     <div class="container-fluid">
       <div class="row justify-content-center">
-        <white-box class="col-10 p-4 m-3">
+        <white-box class="col-10 p-4 m-3 box-height">
           <header>
             <h1>記事の作成</h1>
           </header>
           <main role="main">
             <form>
-              <form-parts :id="1">
-                <div class="form-group">
-                  <p slot="question-title">紹介する人物の名前を入力</p>
-                  <input type="text" class="form-control" v-model="articleData.name">
-                </div>
-              </form-parts>
+              <div class="form-transition-box">
+                <transition name="form-page">
+                  <form-parts :id="1" :key="1" v-if="isCurrent(1)" v-model="currentQuestionId" class="form-page">
+                    <div class="form-group">
+                      <p>紹介する人物の名前を入力</p>
+                      <input type="text" class="form-control" v-model="articleData.name">
+                    </div>
+                  </form-parts>
+                  <form-parts :id="2" :key="2" v-if="isCurrent(2)" v-model="currentQuestionId" class="form-page">
+                    <div class="form-group">
+                      <p>はじめの文を選択</p>
+                      <select class="form-control">
+                        <option v-for="heading in sentences.headings" :key="heading.id">{{ heading.content }}</option>
+                      </select>
+                    </div>
+                  </form-parts>
+                </transition>
+              </div>
             </form>
           </main>
         </white-box>
@@ -50,6 +62,13 @@ export default {
       articleData: {
         name: ''
       },
+      currentQuestionId: 1
+    }
+  },
+  methods: {
+    isCurrent: function(id) {
+      let self = this;
+      return self.currentQuestionId === id;
     }
   }
 }
@@ -72,6 +91,33 @@ h1 {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.form-transition-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.box-height {
+  height: 90vh;
+}
+
+.form-page {
+  position: relative;
+  transition: all 1s;
+
+  &-leave-active {
+    position: absolute;
+  }
+
+  &-enter {
+    transform: translateX(100%);
+  }
+  
+  &-leave-to {
+    transform: translateX(-100%);
+  }
+
 }
 </style>
 

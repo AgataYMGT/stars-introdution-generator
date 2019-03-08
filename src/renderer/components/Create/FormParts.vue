@@ -1,6 +1,5 @@
 <template>
-  <section>
-    <slot name="question-title"></slot>
+  <section class="w-100">
     <slot></slot>
     <div class="adjacent-buttons">
       <button v-if="!isFirstQuestion" @click="$emit('input', id - 1)" class="btn btn-danger rounded-0">戻る</button>
@@ -18,7 +17,7 @@ export default {
     }
   },
   props: {
-    id: Number
+    id: Number,
   }
 }
 </script>
