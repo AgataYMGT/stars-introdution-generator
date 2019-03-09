@@ -55,6 +55,9 @@
     <nav class="go-to-home nav d-flex justify-content-end py-3">
       <router-link :to="'/'" class="btn btn-primary rounded-0 mr-3">ホームに戻る</router-link>
     </nav>
+    <white-box class="create-successful-box d-flex justify-content-center align-items-center">
+      <span class="m-3">記事が生成されました！</span>
+    </white-box>
   </div>
 </template>
 
@@ -145,5 +148,27 @@ nav.go-to-home {
   bottom: 0;
   box-shadow:0px -2px 4px 0px #c3c7d8;
   width: 100%;
+}
+
+.create-successful-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 15em;
+  height: 2em;
+  font-size: 1.35rem;
+  animation: fade-out-after-show 0.5s ease-in 1s forwards;
+}
+
+@keyframes fade-out-after-show {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 </style>
