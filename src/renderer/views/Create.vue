@@ -20,8 +20,40 @@
                     <div class="form-group">
                       <p>はじめの文を選択</p>
                       <select class="form-control">
-                        <option v-for="heading in sentences.headings" :key="heading.id">{{ heading.content }}</option>
+                        <option v-for="heading in sentences.headings" :key="heading.content">{{ heading.content }}</option>
                       </select>
+                    </div>
+                  </form-parts>
+                  <form-parts :key="3" v-if="isCurrent(3)" v-model="currentQuestionId" class="form-page">
+                    <p>紹介する人物のプロフィールを入力</p>
+                    <div class="form-row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>誕生日</label>
+                          <input type="date" name="birthday" class="form-control">
+                        </div>
+                        <div class="form-group">
+                          <label>出身地</label>
+                          <select class="form-control">
+                            <option v-for="prefecture in prefectures" :key="prefecture.code" :value="prefecture.name">{{ prefecture.name }}</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label>Twitterアカウント</label>
+                          <input type="text" name="twitter" value="@" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                  </form-parts>
+                  <form-parts :key="4" v-if="isCurrent(4)" v-model="currentQuestionId" class="form-page">
+                    <p>具体的な記事内容を選択</p>
+                    <div class="form-check">
+                      <input type="checkbox" name="article-details" value="salary">
+                      <label class="form-check-label">年収「{{ sentences.salary }}」</label>
+                    </div>
+                    <div class="form-check">
+                      <input type="checkbox" name="article-details" value="partner">
+                      <label class="form-check-label">恋愛「{{ sentences.partner }}」</label>
                     </div>
                   </form-parts>
                 </transition>
@@ -35,6 +67,7 @@
 </template>
 
 <script>
+import prefectures from '@/assets/prefectures.json'
 export default {
   components: {
     FormParts: require('@/components/Create/FormParts').default,
@@ -53,7 +86,9 @@ export default {
             id: 2,
             content: self.articleData.name + 'は結婚してる！？　独身！？　彼女は！？　調べてみました！'
           }
-        ]
+        ],
+        partner: self.articleData.name + "に恋人の存在が発覚！？噂を徹底調査！",
+        salary: self.articleData.name + "の年収は？意外と稼いでる！？"
       }
     }
   },
@@ -62,7 +97,8 @@ export default {
       articleData: {
         name: ''
       },
-      currentQuestionId: 1
+      currentQuestionId: 1,
+      prefectures: prefectures.prefectures
     }
   },
   methods: {
