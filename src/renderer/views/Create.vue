@@ -95,12 +95,12 @@ export default {
   data: function() {
     return {
       articleData: {
-        birthday: '',
-        birthplace: '',
-        heading: '',
-        name: '',
-        paragraphs: [],
-        twitter: ''
+        birthday: null,
+        birthplace: null,
+        heading: null,
+        name: null,
+        paragraphs: null,
+        twitter: null
       },
       currentQuestionId: 1,
       prefectures: prefectures.prefectures
@@ -110,9 +110,6 @@ export default {
     isCurrent: function(id) {
       let self = this;
       return self.currentQuestionId === id;
-    },
-    watchm: function() {
-      console.log(this.articleData)
     }
   }
 }
