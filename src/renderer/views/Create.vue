@@ -19,8 +19,8 @@
                   <form-parts :key="2" v-if="isCurrent(2)" v-model="currentQuestionId" class="form-page">
                     <div class="form-group">
                       <p>はじめの文を選択</p>
-                      <select class="form-control">
-                        <option v-for="heading in sentences.headings" :key="heading.content">{{ heading.content }}</option>
+                      <select class="form-control" v-model="articleData.heading">
+                        <option v-for="heading in sentences.headings" :key="heading.content" :value="heading.content">{{ heading.content }}</option>
                       </select>
                     </div>
                   </form-parts>
@@ -30,17 +30,17 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label>誕生日</label>
-                          <input type="date" name="birthday" class="form-control">
+                          <input type="date" class="form-control" v-model="articleData.birthday">
                         </div>
                         <div class="form-group">
                           <label>出身地</label>
-                          <select class="form-control">
+                          <select class="form-control" v-model="articleData.birthplace">
                             <option v-for="prefecture in prefectures" :key="prefecture.code" :value="prefecture.name">{{ prefecture.name }}</option>
                           </select>
                         </div>
                         <div class="form-group">
                           <label>Twitterアカウント</label>
-                          <input type="text" name="twitter" value="@" class="form-control">
+                          <input type="text" name="twitter" value="@" class="form-control" v-model="articleData.twitter">
                         </div>
                       </div>
                     </div>
@@ -48,11 +48,11 @@
                   <form-parts :key="4" v-if="isCurrent(4)" v-model="currentQuestionId" class="form-page">
                     <p>具体的な記事内容を選択</p>
                     <div class="form-check">
-                      <input type="checkbox" name="article-details" value="salary">
+                      <input type="checkbox" name="article-paragraphs" value="salary" v-model="articleData.paragraphs">
                       <label class="form-check-label">年収「{{ sentences.salary }}」</label>
                     </div>
                     <div class="form-check">
-                      <input type="checkbox" name="article-details" value="partner">
+                      <input type="checkbox" name="article-paragraphs" value="partner" v-model="articleData.paragraphs">
                       <label class="form-check-label">恋愛「{{ sentences.partner }}」</label>
                     </div>
                   </form-parts>
@@ -95,7 +95,12 @@ export default {
   data: function() {
     return {
       articleData: {
-        name: ''
+        birthday: '',
+        birthplace: '',
+        heading: '',
+        name: '',
+        paragraphs: [],
+        twitter: ''
       },
       currentQuestionId: 1,
       prefectures: prefectures.prefectures
@@ -105,6 +110,9 @@ export default {
     isCurrent: function(id) {
       let self = this;
       return self.currentQuestionId === id;
+    },
+    watchm: function() {
+      console.log(this.articleData)
     }
   }
 }
