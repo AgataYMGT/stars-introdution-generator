@@ -7,7 +7,7 @@
             <img :src="imgSrces.logo" class="img-fluid logo-image" />
           </section>
           <section>
-            <button class="btn btn-outline-project btn-lg rounded-pill">はじめる</button>
+            <router-link :to="'/create'" class="btn btn-outline-project btn-lg rounded-pill">はじめる</router-link>
           </section>
         </div>
       </main>
