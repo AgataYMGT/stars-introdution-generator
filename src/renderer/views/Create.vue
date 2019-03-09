@@ -7,7 +7,7 @@
             <h1>記事の作成</h1>
           </header>
           <main role="main">
-            <form>
+            <form @submit.prevent="createArticle">
               <div class="form-transition-box">
                 <transition name="form-page">
                   <form-parts :key="1" v-if="isCurrent(1)" v-model="currentQuestionId" class="form-page">
@@ -107,6 +107,10 @@ export default {
     }
   },
   methods: {
+    createArticle: function() {
+      let self = this
+      self.$router.push({ path: '/article', query: self.articleData })
+    },
     isCurrent: function(id) {
       let self = this;
       return self.currentQuestionId === id;

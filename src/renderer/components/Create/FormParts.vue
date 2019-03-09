@@ -4,7 +4,7 @@
     <div class="adjacent-buttons">
       <button type="button" v-if="!isFirstQuestion" @click="$emit('input', value - 1)" class="btn btn-danger rounded-0">戻る</button>
       <button type="button" v-if="!isLastQuestion" @click="$emit('input', value + 1)" class="btn btn-danger rounded-0">次へ</button>
-      <button type="button" v-if="isLastQuestion" class="btn btn-success rounded-0">記事を生成</button>
+      <button type="submit" v-if="isLastQuestion" class="btn btn-success rounded-0">記事を生成</button>
       <input type="text" name="dummy" class="d-none">
     </div>
   </section>
