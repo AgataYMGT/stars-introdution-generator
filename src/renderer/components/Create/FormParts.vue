@@ -11,7 +11,7 @@
 </template>
 
 <script>
-const lastQuestionId = 4;
+const lastQuestionId = 3;
 
 export default {
   computed: {
@@ -21,7 +21,7 @@ export default {
     },
     isLastQuestion: function() {
       let self = this;
-      return self.value === 4;
+      return self.value === lastQuestionId;
     }
   },
   props: {

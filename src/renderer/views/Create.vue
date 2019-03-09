@@ -45,17 +45,6 @@
                       </div>
                     </div>
                   </form-parts>
-                  <form-parts :key="4" v-if="isCurrent(4)" v-model="currentQuestionId" class="form-page">
-                    <p>具体的な記事内容を選択</p>
-                    <div class="form-check">
-                      <input type="checkbox" name="article-paragraphs" value="salary" v-model="articleData.paragraphs">
-                      <label class="form-check-label">年収「{{ sentences.salary }}」</label>
-                    </div>
-                    <div class="form-check">
-                      <input type="checkbox" name="article-paragraphs" value="partner" v-model="articleData.paragraphs">
-                      <label class="form-check-label">恋愛「{{ sentences.partner }}」</label>
-                    </div>
-                  </form-parts>
                 </transition>
               </div>
             </form>
@@ -86,9 +75,7 @@ export default {
             id: 2,
             content: self.articleData.name + 'は結婚してる！？　独身！？　彼女は！？　調べてみました！'
           }
-        ],
-        partner: self.articleData.name + "に恋人の存在が発覚！？噂を徹底調査！",
-        salary: self.articleData.name + "の年収は？意外と稼いでる！？"
+        ]
       }
     }
   },
@@ -99,7 +86,6 @@ export default {
         birthplace: null,
         heading: null,
         name: null,
-        paragraphs: null,
         twitter: null
       },
       currentQuestionId: 1,
