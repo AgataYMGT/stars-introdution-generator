@@ -16,6 +16,11 @@ export default new Router({
       component: require('@/views/Create').default
     },
     {
+      path: '/article',
+      name: 'article-page',
+      component: require('@/views/Article').default
+    },
+    {
       path: '*',
       redirect: '/'
     }
