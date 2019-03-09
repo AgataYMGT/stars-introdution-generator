@@ -52,6 +52,9 @@
         </white-box>
       </div>
     </div>
+    <nav class="go-to-home nav d-flex justify-content-end py-3">
+      <router-link :to="'/'" class="btn btn-primary rounded-0 mr-3">ホームに戻る</router-link>
+    </nav>
   </div>
 </template>
 
@@ -134,5 +137,13 @@ article {
     padding-top: $article-img-padding-y;
     padding-bottom: $article-img-padding-y;
   }
+}
+
+nav.go-to-home {
+  background-color: $bg-color-article-nav-go-to-home;
+  position: sticky;
+  bottom: 0;
+  box-shadow:0px -2px 4px 0px #c3c7d8;
+  width: 100%;
 }
 </style>
