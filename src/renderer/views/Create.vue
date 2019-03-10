@@ -10,10 +10,10 @@
             <form @submit.prevent="createArticle">
               <div class="form-transition-box">
                 <transition name="form-page">
-                  <form-parts :key="1" v-if="isCurrent(1)" :is-valid="articleData.name" v-model="currentQuestionId" class="form-page">
+                  <form-parts :key="1" v-if="isCurrent(1)" :is-valid="articleData.profile.name" v-model="currentQuestionId" class="form-page">
                     <div class="form-group">
                       <p>紹介する人物の名前を入力</p>
-                      <input type="text" class="form-control" v-model="articleData.name">
+                      <input type="text" class="form-control" v-model="articleData.profile.name">
                     </div>
                   </form-parts>
                   <form-parts :key="2" v-if="isCurrent(2)" :is-valid="articleData.heading" v-model="currentQuestionId" class="form-page">
@@ -24,17 +24,17 @@
                       </select>
                     </div>
                   </form-parts>
-                  <form-parts :key="3" v-if="isCurrent(3)" :is-valid="articleData.birthday && articleData.birthplace" v-model="currentQuestionId" class="form-page">
+                  <form-parts :key="3" v-if="isCurrent(3)" :is-valid="isProfileValid" v-model="currentQuestionId" class="form-page">
                     <p>紹介する人物のプロフィールを入力</p>
                     <div class="form-row">
                       <div class="col-md-6">
                         <div class="form-group">
                           <label>誕生日</label>
-                          <input type="date" class="form-control" v-model="articleData.birthday">
+                          <input type="date" class="form-control" v-model="articleData.profile.birthday">
                         </div>
                         <div class="form-group">
                           <label>出身地</label>
-                          <select class="form-control" v-model="articleData.birthplace">
+                          <select class="form-control" v-model="articleData.profile.birthplace">
                             <option v-for="prefecture in prefectures" :key="prefecture.code" :value="prefecture.name">{{ prefecture.name }}</option>
                           </select>
                         </div>
@@ -63,17 +63,25 @@ export default {
     WhiteBox: require('@/components/WhiteBox').default
   },
   computed: {
+    isProfileValid: function() {
+      let self = this
+
+      for(let item of Object.values(self.articleData.profile)) {
+        if(!item) return false
+      }
+      return true
+    },
     sentences: function() {
       let self = this;
       return {
         headings: [
           {
             id: 1,
-            content: self.articleData.name + 'って誰？年齢や恋人は？私なりに調べてみました！'
+            content: self.articleData.profile.name + 'って誰？年齢や恋人は？私なりに調べてみました！'
           },
           {
             id: 2,
-            content: self.articleData.name + 'は結婚してる！？　独身！？　彼女は！？　調べてみました！'
+            content: self.articleData.profile.name + 'は結婚してる！？　独身！？　彼女は！？　調べてみました！'
           }
         ]
       }
@@ -82,10 +90,12 @@ export default {
   data: function() {
     return {
       articleData: {
-        birthday: null,
-        birthplace: null,
+        profile: {
+          birthday: null,
+          birthplace: null,
+          name: null,
+        },
         heading: null,
-        name: null,
         twitter: null
       },
       currentQuestionId: 1,
