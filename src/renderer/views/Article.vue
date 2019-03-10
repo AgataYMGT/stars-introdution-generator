@@ -136,6 +136,8 @@ article {
 
   p {
     line-height: 1.9rem;
+    margin-top: $article-p-marign-y;
+    margin-bottom: $article-p-marign-y;
   }
 
   img.post-section-img {
