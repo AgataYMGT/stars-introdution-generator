@@ -25,6 +25,8 @@
               <li class="list-group-item">名前: {{ articleData.profile.name }}</li>
               <li class="list-group-item">誕生日: {{ birthdayJa }}（{{ age }}歳）</li>
               <li class="list-group-item">出身地: {{ articleData.profile.birthplace }}</li>
+              <li class="list-group-item">趣味: {{ articleData.profile.hobbies }}</li>
+              <li class="list-group-item">Twitter アカウント: {{ articleData.twitter || '不明' }}</li>
             </ul>
             <p>このプロフィールを見ただけでは分からないことも多く、<b>まだまだ謎が多い方のようですね！</b></p>
             <h2>{{ articleData.profile.name }}の年収は？意外と稼いでる！？</h2>

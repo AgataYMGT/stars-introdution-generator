@@ -39,6 +39,10 @@
                           </select>
                         </div>
                         <div class="form-group">
+                          <label>趣味</label>
+                          <input type="text" name="twitter" value="@" class="form-control" v-model="articleData.profile.hobbies">
+                        </div>
+                        <div class="form-group">
                           <label>Twitterアカウント</label>
                           <input type="text" name="twitter" value="@" class="form-control" v-model="articleData.twitter">
                         </div>
@@ -93,7 +97,8 @@ export default {
         profile: {
           birthday: null,
           birthplace: null,
-          name: null,
+          hobbies: null,
+          name: null
         },
         heading: null,
         twitter: null
