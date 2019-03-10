@@ -10,6 +10,10 @@
   }
 </script>
 
-<style>
-  /* CSS */
+<style lang="scss">
+@import "node_modules/bootstrap/scss/bootstrap";
+
+body {
+  margin: 0;
+}
 </style>
