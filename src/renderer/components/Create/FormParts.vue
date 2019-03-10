@@ -14,7 +14,7 @@
 </template>
 
 <script>
-const lastQuestionId = 3;
+const lastQuestionId = 4;
 
 export default {
   computed: {
