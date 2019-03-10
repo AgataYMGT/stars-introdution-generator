@@ -1,21 +1,23 @@
 # 芸能人紹介ジェネレーター
 
-> An electron-vue project
+> 第26回コンピューターフェスティバル アプリケーション部門 AP-05
+
+芸能人・有名人の名で検索するとよく出てくる　**「〇〇って誰？」「調べてみました！」「いかがでしたか？」** などの文言が並ぶ、内容がティッシュより薄いトレンドブログの記事を再現して生成するアプリケーションです。
 
 #### Build Setup
 
 ``` bash
-# install dependencies
+# 依存関係のインストール
 npm install
 
-# serve with hot reload at localhost:9080
+# 開発モードによる起動
 npm run dev
 
-# build electron application for production
+# プロダクションモードで Electron をビルド
 npm run build
 
 
-# lint all JS/Vue component files in `src/`
+# `src/` ディレクトリ内の JS/Vue ファイルの lint を行う
 npm run lint
 
 ```
