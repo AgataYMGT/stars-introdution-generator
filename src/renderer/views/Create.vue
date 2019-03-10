@@ -10,13 +10,21 @@
             <form @submit.prevent="createArticle">
               <div class="form-transition-box">
                 <transition name="form-page">
-                  <form-parts :key="1" v-if="isCurrent(1)" :is-valid="articleData.profile.name" v-model="currentQuestionId" class="form-page">
+                  <form-parts :key="1" v-if="isCurrent(1)" :is-valid="true" v-model="currentQuestionId" class="form-page">
+                    <article>
+                      <h2>はじめに</h2>
+                      <p>このアプリケーションは、芸能人・有名人の名前でインターネット検索をしたとき上位に出てくる</p>
+                      <p class="h4 text-danger">「〇〇って誰？」「調べてみました！」「いかがでしたか？」</p>
+                      <p>などの文言が並ぶ、トレンドブログの記事を再現するネタアプリケーションです！</p>
+                    </article>
+                  </form-parts>
+                  <form-parts :key="2" v-if="isCurrent(2)" :is-valid="articleData.profile.name" v-model="currentQuestionId" class="form-page">
                     <div class="form-group">
                       <p>紹介する人物の名前を入力</p>
                       <input type="text" class="form-control" v-model="articleData.profile.name">
                     </div>
                   </form-parts>
-                  <form-parts :key="2" v-if="isCurrent(2)" :is-valid="articleData.heading" v-model="currentQuestionId" class="form-page">
+                  <form-parts :key="3" v-if="isCurrent(3)" :is-valid="articleData.heading" v-model="currentQuestionId" class="form-page">
                     <div class="form-group">
                       <p>はじめの文を選択</p>
                       <select class="form-control" v-model="articleData.heading">
@@ -24,7 +32,7 @@
                       </select>
                     </div>
                   </form-parts>
-                  <form-parts :key="3" v-if="isCurrent(3)" :is-valid="isProfileValid" v-model="currentQuestionId" class="form-page">
+                  <form-parts :key="4" v-if="isCurrent(4)" :is-valid="isProfileValid" v-model="currentQuestionId" class="form-page">
                     <p>紹介する人物のプロフィールを入力</p>
                     <div class="form-row">
                       <div class="col-md-6">
