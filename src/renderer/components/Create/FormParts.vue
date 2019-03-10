@@ -25,7 +25,7 @@ export default {
     }
   },
   props: {
-    isValid: Boolean,
+    isValid: [String, Boolean],
     value: Number,
   }
 }
